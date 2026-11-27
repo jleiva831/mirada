@@ -32,6 +32,8 @@ install -Dm755 -- "$repo_root/packaging/deb/postinst" "$stage/DEBIAN/postinst"
 install -Dm755 -- "$repo_root/packaging/deb/postrm" "$stage/DEBIAN/postrm"
 install -Dm644 -- "$repo_root/data/mirada.desktop" "$stage/usr/share/applications/mirada.desktop"
 install -Dm644 -- "$repo_root/src/mirada/mirada.svg" "$stage/usr/share/icons/hicolor/scalable/apps/mirada.svg"
+install -Dm644 -- "$repo_root/data/io.github.jleiva831.mirada.metainfo.xml" \
+    "$stage/usr/share/metainfo/io.github.jleiva831.mirada.metainfo.xml"
 doc=$stage/usr/share/doc/mirada
 install -Dm644 -- "$repo_root/LICENSE" "$doc/copyright"
 printf '\nSee THIRD-PARTY-NOTICES.txt and licenses/ for bundled components.\n' >> "$doc/copyright"

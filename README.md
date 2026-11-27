@@ -32,7 +32,7 @@ chmod +x Mirada-VERSION-x86_64.AppImage
 ./Mirada-VERSION-x86_64.AppImage
 ```
 
-El `.deb` instala en `/opt/mirada` y crea el comando `mirada`; se desinstala con `sudo apt remove mirada`. El AppImage ya incluye `xcb-cursor` y PortAudio; para el seguimiento por voz el sistema necesita además ALSA (`libasound2`, y `libjack-jackd2-0` en sistemas mínimos), que cualquier escritorio normal ya trae; si tu sistema no tiene FUSE, ejecútalo con `--appimage-extract-and-run`. Para construirlos tú mismo: `bash packaging/build-deb.sh` y `bash packaging/build-appimage.sh` (resultado en `dist/`; ver `packaging/`).
+El `.deb` instala en `/opt/mirada` y crea el comando `mirada`; se desinstala con `sudo apt remove mirada`. El AppImage ya incluye `xcb-cursor` y PortAudio; para el seguimiento por voz el sistema necesita además ALSA (`libasound2`, y `libjack-jackd2-0` en sistemas mínimos), que cualquier escritorio normal ya trae; si tu sistema no tiene FUSE, ejecútalo con `--appimage-extract-and-run`. Para actualizar el AppImage sin bajarlo entero, usa [AppImageUpdate](https://github.com/AppImageCommunity/AppImageUpdate) o [Gear Lever](https://flathub.org/apps/it.mijorus.gearlever) (desde la versión que sigue a la 0.4.1). Para comprobar la descarga: `sha256sum --check --ignore-missing SHA256SUMS`, con el `SHA256SUMS` de la misma versión. Para construirlos tú mismo: `bash packaging/build-deb.sh` y `bash packaging/build-appimage.sh` (resultado en `dist/`; ver `packaging/`).
 
 ### Opción 2: instalador
 

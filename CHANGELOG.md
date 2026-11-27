@@ -1,5 +1,11 @@
 # Cambios
 
+## Sin publicar
+
+- **AppImage actualizable**: el AppImage trae información de actualización y cada versión publica su `.zsync`, así que se puede actualizar con [AppImageUpdate](https://github.com/AppImageCommunity/AppImageUpdate) o Gear Lever descargando solo lo que cambió.
+- **Metadatos AppStream** (`io.github.jleiva831.mirada.metainfo.xml`) en el `.deb` y el AppImage: los centros de software y catálogos de AppImage muestran descripción, capturas y versiones.
+- El lanzador ya no declara dos categorías principales, que podían hacer aparecer Mirada dos veces en el menú.
+
 ## 0.4.1 — 2026-11-26
 
 - **Instaladores**: paquete `.deb` (Debian 12+ / Ubuntu 22.04+) y **AppImage** (x86_64), con Python y Qt incluidos; no hace falta instalar nada más. Se adjuntan a cada versión en GitHub. Gracias a @Pdzly (#1).

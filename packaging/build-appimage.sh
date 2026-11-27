@@ -29,6 +29,8 @@ site_packages=$("$python" -IB -c 'import sysconfig; print(sysconfig.get_path("pu
 install -m755 -- "$repo_root/packaging/appimage/AppRun" "$appdir/AppRun"
 install -m644 -- "$repo_root/packaging/appimage/sitecustomize.py" "$site_packages/sitecustomize.py"
 install -m644 -- "$repo_root/data/mirada.desktop" "$appdir/mirada.desktop"
+install -Dm644 -- "$repo_root/data/io.github.jleiva831.mirada.metainfo.xml" \
+    "$appdir/usr/share/metainfo/io.github.jleiva831.mirada.metainfo.xml"
 install -m644 -- "$repo_root/src/mirada/mirada.svg" "$appdir/mirada.svg"
 ln -s mirada.svg "$appdir/.DirIcon"
 
@@ -161,8 +163,14 @@ NOTICES
 cp -- "$notices" "$work/THIRD-PARTY-NOTICES.txt"
 chmod +x -- "$tool"
 artifact=Mirada-${version}-x86_64.AppImage
+# Update information for AppImageUpdate; appimagetool also writes $artifact.zsync,
+# which must be published next to the AppImage in every GitHub release.
+update_info='gh-releases-zsync|jleiva831|mirada|latest|Mirada-*x86_64.AppImage.zsync'
 ARCH=x86_64 "$tool" --appimage-extract-and-run --no-appstream --runtime-file "$runtime" \
+    --updateinformation "$update_info" \
     --mksquashfs-opt=-processors --mksquashfs-opt=2 "$appdir" "$work/$artifact"
+test -s "$work/$artifact.zsync"
 mv -Tf -- "$work/$artifact" "$out/$artifact"
+mv -Tf -- "$work/$artifact.zsync" "$out/$artifact.zsync"
 mv -Tf -- "$work/THIRD-PARTY-NOTICES.txt" "$out/THIRD-PARTY-NOTICES-AppImage.txt"
 echo "$out/$artifact"

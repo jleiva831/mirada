@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.jleiva831.mirada</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+
+  <name>Mirada</name>
+  <summary>Teleprompter under your webcam that scrolls while you speak</summary>
+  <summary xml:lang="es">Teleprompter bajo la cámara que avanza mientras hablas</summary>
+
+  <developer id="io.github.jleiva831">
+    <name>jleiva831</name>
+  </developer>
+
+  <description>
+    <p>
+      Mirada places your script right under the webcam, so you keep looking at the
+      camera while you read. Voice tracking scrolls the text while you speak and
+      stops when you pause.
+    </p>
+    <p xml:lang="es">
+      Mirada pone tu guion justo bajo la cámara, para que sigas mirando al lente
+      mientras lees. El seguimiento por voz avanza el texto mientras hablas y se
+      detiene cuando haces una pausa.
+    </p>
+    <ul>
+      <li>Notch mode under the webcam or a floating window</li>
+      <li xml:lang="es">Modo notch bajo la cámara o ventana flotante</li>
+      <li>Voice tracking with background noise calibration</li>
+      <li xml:lang="es">Seguimiento por voz con calibración del ruido de fondo</li>
+      <li>Sections you can jump between with the keys 1 to 9</li>
+      <li xml:lang="es">Secciones a las que saltas con las teclas 1 a 9</li>
+      <li>Remote control from another device</li>
+      <li xml:lang="es">Control remoto desde otro dispositivo</li>
+    </ul>
+  </description>
+
+  <launchable type="desktop-id">mirada.desktop</launchable>
+
+  <url type="homepage">https://github.com/jleiva831/mirada</url>
+  <url type="bugtracker">https://github.com/jleiva831/mirada/issues</url>
+  <url type="vcs-browser">https://github.com/jleiva831/mirada</url>
+
+  <screenshots>
+    <screenshot type="default">
+      <caption>Mirada under the webcam</caption>
+      <caption xml:lang="es">Mirada bajo la webcam</caption>
+      <image>https://raw.githubusercontent.com/jleiva831/mirada/main/docs/img/hero.png</image>
+    </screenshot>
+  </screenshots>
+
+  <categories>
+    <category>AudioVideo</category>
+    <category>Video</category>
+  </categories>
+  <keywords>
+    <keyword>teleprompter</keyword>
+    <keyword>prompter</keyword>
+    <keyword>script</keyword>
+    <keyword xml:lang="es">guion</keyword>
+  </keywords>
+
+  <requires>
+    <display_length compare="ge">768</display_length>
+  </requires>
+  <supports>
+    <control>keyboard</control>
+    <control>pointing</control>
+  </supports>
+
+  <content_rating type="oars-1.1"/>
+
+  <releases>
+    <release version="0.4.1" date="2026-11-26">
+      <description>
+        <p>.deb and AppImage packages with Python and Qt included.</p>
+      </description>
+    </release>
+    <release version="0.4.0" date="2026-11-26">
+      <description>
+        <p>Background noise calibration for voice tracking.</p>
+      </description>
+    </release>
+    <release version="0.3.0" date="2026-11-25">
+      <description>
+        <p>The notch sits below the top panel, screen and camera position can be chosen, and the width scales with the screen.</p>
+      </description>
+    </release>
+    <release version="0.2.0" date="2026-11-25">
+      <description>
+        <p>Open source under the MIT license, Qt moves to PySide6, validated configuration and a safer remote control.</p>
+      </description>
+    </release>
+  </releases>
+</component>
