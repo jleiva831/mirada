@@ -67,6 +67,7 @@ as_tester "./app.AppImage --appimage-extract" >/dev/null 2>&1 || fail "--appimag
 ROOT=/home/tester/squashfs-root
 PY="$ROOT/usr/python/bin/python3"
 [ -x "$PY" ] || fail "bundled python missing at $PY"
+[ -f "$ROOT/usr/share/metainfo/io.github.jleiva831.mirada.metainfo.xml" ] || fail "AppStream metainfo missing"
 
 step "License documentation"
 DOC="$ROOT/usr/share/doc/mirada"

@@ -62,3 +62,14 @@ jobs:
           fi
           # The changelog should mention the current version
           grep -q "$version" CHANGELOG.md || echo "Note: CHANGELOG.md does not mention $version"
+      - name: Desktop entry and AppStream metadata
+        run: |
+          sudo apt-get install -y --no-install-recommends appstream desktop-file-utils
+          desktop-file-validate data/mirada.desktop
+          appstreamcli validate --no-net data/io.github.jleiva831.mirada.metainfo.xml
+          version="$(sed -n 's/^__version__ = "\(.*\)"$/\1/p' src/mirada/__init__.py)"
+          latest="$(grep -m1 -o '<release version="[^"]*"' data/io.github.jleiva831.mirada.metainfo.xml | cut -d '"' -f 2)"
+          if [ "$latest" != "$version" ]; then
+            echo "The latest <release> in the metainfo is $latest, but the version is $version" >&2
+            exit 1
+          fi
