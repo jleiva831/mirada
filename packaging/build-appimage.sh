@@ -163,12 +163,13 @@ NOTICES
 cp -- "$notices" "$work/THIRD-PARTY-NOTICES.txt"
 chmod +x -- "$tool"
 artifact=Mirada-${version}-x86_64.AppImage
-# Update information for AppImageUpdate; appimagetool also writes $artifact.zsync,
-# which must be published next to the AppImage in every GitHub release.
+# Update information for AppImageUpdate; appimagetool also writes $artifact.zsync
+# into the current directory (hence the cd), which must be published next to the
+# AppImage in every GitHub release.
 update_info='gh-releases-zsync|jleiva831|mirada|latest|Mirada-*x86_64.AppImage.zsync'
-ARCH=x86_64 "$tool" --appimage-extract-and-run --no-appstream --runtime-file "$runtime" \
+(cd -- "$work" && ARCH=x86_64 "$tool" --appimage-extract-and-run --no-appstream --runtime-file "$runtime" \
     --updateinformation "$update_info" \
-    --mksquashfs-opt=-processors --mksquashfs-opt=2 "$appdir" "$work/$artifact"
+    --mksquashfs-opt=-processors --mksquashfs-opt=2 "$appdir" "$work/$artifact")
 test -s "$work/$artifact.zsync"
 mv -Tf -- "$work/$artifact" "$out/$artifact"
 mv -Tf -- "$work/$artifact.zsync" "$out/$artifact.zsync"
